@@ -25,6 +25,9 @@ export default function Home() {
     return(
         <div className='homePage'>
             <HomeBar />
+            <h1>Livros da casa</h1>
+            <h2>Resolução de ano novo? Ler mais livros!</h2>
+            <h2>Alugue um de nossos livros!</h2>
             <div className='booksBox'>
                 {books.map(book => {
                     return(
