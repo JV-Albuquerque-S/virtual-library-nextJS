@@ -2,6 +2,8 @@ import { useState } from "react";
 import HomeBar from "@/components/HomeBar";
 import Link from "next/link";
 import { FiPlusSquare } from 'react-icons/fi';
+import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
+
 
 const books = [
     {id: 0, title: 'Senhor dos Anés: A Sociedade do Anel', author: 'J.R.R. Tolkien', publicated_in: '1954', publisher: 'HarperCollins', available: true},
@@ -23,41 +25,48 @@ const books = [
 ]
 
 export default function Home() {
-    const [isFormOpen, setFormOpen] = useState(false);
+    const [isFormOpen, setFormOpen] = useState(false)
     const [newBook, setNewBook] = useState({
       title: '',
       author: '',
       publicated_in: '',
       publisher: '',
       available: true,
-    });
+    })
   
     const toggleForm = () => {
-        setFormOpen(!isFormOpen);
-      };
+        setFormOpen(!isFormOpen)
+      }
     
       const handleInputChange = (e: any) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setNewBook((prevBook) => ({
           ...prevBook,
           [name]: value,
-        }));
-      };
+        }))
+      }
     
       const handleSubmit = (e: any) => {
-        e.preventDefault();
+        e.preventDefault()
         // chamado de api
-        console.log('Novo Livro:', newBook);
+        console.log('Novo Livro:', newBook)
         setNewBook({
           title: '',
           author: '',
           publicated_in: '',
           publisher: '',
           available: true,
-        });
-        setFormOpen(false);
-      };
-    
+        })
+        setFormOpen(false)
+      }
+
+      const handleEditBook = (id: number) => {
+        
+      }
+
+      const handleDeleteBook = (id: number) => {
+
+      }
 
     return(
         <div className='homePage'>
@@ -66,7 +75,7 @@ export default function Home() {
             <h2>Adicione livros que adquirimos atualmente</h2>
             <h2>Exclua livros que não possuímos mais</h2>
             <h2>Ou modifique uma informação errada</h2>
-            <button onClick={toggleForm}>
+            <button className='bg-orange-500 w-40 h-12 mb-5' onClick={toggleForm}>
                 <FiPlusSquare /> Adicionar Livro
             </button>
             {isFormOpen && (
@@ -119,18 +128,37 @@ export default function Home() {
             <div className='booksBox'>
                 {books.map(book => {
                     return(
-                        <Link
-                        className='singleBook'
-                        key={book.id}
-                        href={{
-                            pathname:'/book/book',
-                            query:{id:book.id}
-                        }}>
-                            <p>{book.title}</p>
-                            <p>{book.author}</p>
-                            <p>{book.publicated_in}</p>
-                            <p>{book.publisher}</p>
-                        </Link>
+                        <>
+                            <div
+                                className='singleBookManage'
+                                key={book.id}
+                            >
+                                <p>{book.title}</p>
+                                <p>{book.author}</p>
+                                <p>{book.publicated_in}</p>
+                                <p>{book.publisher}</p>
+                                <div className='actionIcons'>
+                                    <AiOutlineDelete
+                                        color="red"
+                                        size={20}
+                                        className='deleteIcon cursor-pointer mr-2'
+                                        onClick={() => handleDeleteBook(book.id)}
+                                    />
+                        
+                                    <Link
+                                        href={{
+                                            pathname: '/editBook/editBook',
+                                            query: { id: book.id },
+                                        }}
+                                    >
+                                        <AiOutlineEdit
+                                            size={20}
+                                            className='editIcon cursor-pointer'
+                                        />
+                                    </Link>
+                                </div>
+                            </div>
+                        </>
                     )
                 })}
             </div>
