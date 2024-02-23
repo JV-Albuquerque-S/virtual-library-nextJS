@@ -1,6 +1,5 @@
-import { useState } from "react";
-import HomeBar from "@/components/HomeBar";
-import Link from "next/link";
+import { useRouter } from "next/router"
+import HomeBar from "@/components/HomeBar"
 
 const books = [
     {id: 0, title: 'Senhor dos Anés: A Sociedade do Anel', author: 'J.R.R. Tolkien', publicated_in: '1954', publisher: 'HarperCollins', available: true},
@@ -21,35 +20,26 @@ const books = [
     {id: 15, title: 'Nome do livro 8', author: 'Autor do livro 8', publicated_in: '2077', publisher: 'Editora do livro 8', available: true}
 ]
 
-export default function Home() {
+export default function Book() {
+    const router = useRouter()
+    const { id } = router.query
+    const bookIndex = typeof id === 'string' ? parseInt(id, 10) : undefined;
+    const selectedBook = bookIndex !== undefined ? books[bookIndex] : null;
 
-    return(
-        <div className='homePage'>
-            <HomeBar />
-            <h1>Livros da casa</h1>
-            <h2>Resolução de ano novo? Ler mais livros!</h2>
-            <h2>Alugue um de nossos livros!</h2>
-            <div className='booksBox'>
-                {books.map(book => {
-                    return(
-                        <Link
-                        className='singleBook'
-                        key={book.id}
-                        href={{
-                            pathname:'/book/book',
-                            query:{id:book.id}
-                        }}>
-                            <p>{book.title}</p>
-                            <p>{book.author}</p>
-                            {book.available ?
-                                <p className='text-green-500'>Disponível :)</p>
-                                :
-                                <p className='text-red-500'>Alugado :(</p>
-                            }
-                        </Link>
-                    )
-                })}
+    return (
+        <div className='bookPage'>
+          <HomeBar />
+          {selectedBook ? (
+            <div className='bookBox'>
+              <h1>{selectedBook.title}</h1>
+              <p>Autor: {selectedBook.author}</p>
+              <p>Ano de publicação: {selectedBook.publicated_in}</p>
+              <p>Editora: {selectedBook.publisher}</p>
+              {selectedBook.available ? <button className='working-button'>Alugar livro</button> : <button className='non-working-button' disabled={true}>Livro indíponível :(</button>}
             </div>
+          ) : (
+            <p className='mt-20'>Livro não encontrado</p>
+          )}
         </div>
-    )
+      );
 }
