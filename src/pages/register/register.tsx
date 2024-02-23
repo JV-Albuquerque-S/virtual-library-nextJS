@@ -43,11 +43,11 @@ export default function Register() {
   }*/
 
   return (
-        <div className='loginPage'>
+        <div className='registerPage'>
             <LoginBar />
             <h2>Registre-se</h2>
           <div className='registerBox' title="Faça seu login">
-            <form className='loginForm'>
+            <form className='registerForm'>
               <input
                 type="email"
                 placeholder="Email"

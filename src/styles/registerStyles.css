@@ -1,0 +1,80 @@
+.registerPage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #45d0c1;
+  
+    h2{
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #053b4b;
+    }
+    h3{
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #053b4b;
+    }
+  }
+  
+  .registerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-width: 1px;
+    border-radius: 20px;
+    background-color: #CCFBF1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .registerForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    input {
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      outline: none;
+      padding-right: 30px;
+    }
+    input:focus {
+      border-color: #b0b0b0;
+    }
+    
+    button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #ff672f;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  
+  }
+  .firstEyeIcon {
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .secondEyeIcon {
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
