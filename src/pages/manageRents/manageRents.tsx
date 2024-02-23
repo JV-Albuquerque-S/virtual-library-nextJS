@@ -1,0 +1,20 @@
+export default function ManageRents() {
+    return(
+        <>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+            <p>teste</p>
+        </>
+    )
+}

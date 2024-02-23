@@ -24,8 +24,15 @@ export default function HomeBar() {
             />
             {isMenuOpen && (
                 <div className='absolute top-[70px] right-6 bg-white border shadow-md p-2'>
-                    <p onClick={() => console.log('Opção 1 clicada')}>Usuário</p>
-                    <p onClick={() => console.log('Opção 1 clicada')}>Gerenciar livros</p>
+                    <Link href='/profile/profile'>
+                        <p className='cursor-pointer'>Usuário</p>
+                    </Link>
+                    <Link href='/manageBooks/manageBooks'>
+                        <p className='cursor-pointer'>Gerenciar livros</p>
+                    </Link>
+                    <Link href='/manageRents/manageRents'>
+                        <p className='cursor-pointer'>Gerenciar alugueis</p>
+                    </Link>
                     <p onClick={() => console.log('Logout clicado')}>Logout</p>
                 </div>
             )}
