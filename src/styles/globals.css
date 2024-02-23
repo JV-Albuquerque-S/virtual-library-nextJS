@@ -27,6 +27,18 @@
   }
 }
 
+.registerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-width: 1px;
+  border-radius: 20px;
+  background-color: #CCFBF1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 .loginBox {
   display: flex;
   justify-content: center;
@@ -36,9 +48,11 @@
   border-width: 1px;
   border-radius: 20px;
   background-color: #CCFBF1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .loginForm {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -48,6 +62,7 @@
     border: 2px solid #e0e0e0;
     border-radius: 5px;
     outline: none;
+    padding-right: 30px;
   }
   input:focus {
     border-color: #b0b0b0;
@@ -65,6 +80,18 @@
     color: #fff;
     background-color: #ff672f;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
   }
+
+}
+.firstEyeIcon {
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  cursor: pointer;
+}
+.secondEyeIcon {
+  position: absolute;
+  top: 130px;
+  right: 10px;
+  cursor: pointer;
 }
