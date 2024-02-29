@@ -1,4 +1,3 @@
-import { useState } from "react";
 import HomeBar from "@/components/HomeBar";
 import Link from "next/link";
 
