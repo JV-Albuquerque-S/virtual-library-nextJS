@@ -24,7 +24,7 @@ const books = [
     {id: 15, title: 'Nome do livro 8', author: 'Autor do livro 8', publicated_in: '2077', publisher: 'Editora do livro 8', available: true}
 ]
 
-export default function Home() {
+export default function ManageBooks() {
     const [isFormOpen, setFormOpen] = useState(false)
     const [newBook, setNewBook] = useState({
       title: '',
